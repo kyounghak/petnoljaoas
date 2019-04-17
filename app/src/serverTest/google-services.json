@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "726706268619",
+    "firebase_url": "https://petnolja-dev.firebaseio.com",
+    "project_id": "petnolja-dev",
+    "storage_bucket": "petnolja-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726706268619:android:e23d9867b25e7286",
+        "android_client_info": {
+          "package_name": "com.chaigene.petnolja.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726706268619-krohs5sa1qia22pejgt0arlisftcc53k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chaigene.petnolja.test",
+            "certificate_hash": "6c28fc5143dc81127793414c89dd5d7a2a27d10b"
+          }
+        },
+        {
+          "client_id": "726706268619-1dcu9i4klp5ct08o02s86b6i2hi5gd0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKGM8ExhONfc7AT2gGXh_nnC2brHcJIjU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726706268619-1dcu9i4klp5ct08o02s86b6i2hi5gd0m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

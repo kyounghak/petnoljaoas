@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_frame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <LinearLayout
+        android:id="@+id/dialog_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_rounded_dialog_order_detail"
+        android:orientation="vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="20dp"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/order_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="14dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/material_black_1000"
+            android:textSize="13sp"
+            tools:text="스페이스, 오디티 트라이앵글 티백" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp">
+
+            <!--<FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginEnd="15dp"
+                android:layout_toStartOf="@+id/cover_photo"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/shipping_carrier_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:textColor="@color/material_red_600"
+                        android:textSize="12sp"
+                        tools:text="대한통운" />
+
+                    <TextView
+                        android:id="@+id/shipping_tracking_no_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="2"
+                        android:textColor="@color/material_red_600"
+                        android:textSize="12sp"
+                        tools:text="411394406592" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/shipping_edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:maxLines="2"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:text="배송정보수정"
+                    android:textColor="@color/material_grey_400"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </FrameLayout>-->
+
+            <ImageView
+                android:id="@+id/cover_photo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/material_grey_100"
+                tools:src="@drawable/feed_photo_23" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/cover_photo"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:id="@+id/order_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:maxLines="2"
+                    android:textColor="@color/material_red_600"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="결제완료" />
+
+                <!-- 구매자 -->
+                <Button
+                    android:id="@+id/order_cancel_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:maxLines="2"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="구매취소"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+
+                <Button
+                    android:id="@+id/order_finalize_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:maxLines="2"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="구매결정"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/order_report_issue_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="환불/교환"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/order_cancel_issue_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="환불/교환취소"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+                <!-- /구매자 -->
+
+                <!-- 판매자 -->
+                <Button
+                    android:id="@+id/shipping_start_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="전달하기"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+
+                <Button
+                    android:id="@+id/shipping_complete_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="전달완료"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+
+                <Button
+                    android:id="@+id/order_chat_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="메시지"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+
+                <Button
+                    android:id="@+id/order_accept_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="승인"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/order_reject_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:maxLines="2"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="취소"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/order_resolve_issue_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="환불/교환승인"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+                <!-- /판매자 -->
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/issue_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:includeFontPadding="false"
+                android:text="환불/교환 정보"
+                android:textColor="@color/material_grey_700"
+                android:textSize="9sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/material_grey_700" />
+
+            <TextView
+                android:id="@+id/issue_message_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="사유: 생각했던 거랑 제품이 많이 다르네요." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:includeFontPadding="false"
+                android:text="구매 상세정보"
+                android:textColor="@color/material_grey_700"
+                android:textSize="9sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/material_grey_700" />
+
+            <TextView
+                android:id="@+id/info_order_date_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="주문일자: 2017.01.01" />
+
+            <TextView
+                android:id="@+id/info_order_no_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="상품주문번호: 30150002" />
+
+            <TextView
+                android:id="@+id/info_seller_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="판매자: pandaz (010-3240-2233)" />
+
+            <TextView
+                android:id="@+id/info_quantity_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="수량: 1개" />
+
+            <TextView
+                android:id="@+id/info_subtotal_price_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="소계: 20,000원" />
+
+            <TextView
+                android:id="@+id/info_shipping_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="배송비: 무료" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:includeFontPadding="false"
+                android:text="결제금액정보"
+                android:textColor="@color/material_grey_700"
+                android:textSize="9sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/material_grey_700" />
+
+            <TextView
+                android:id="@+id/payment_method_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="결제방식: 신용카드" />
+
+            <TextView
+                android:id="@+id/payment_total_price_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="결제금액: 20,000원" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:includeFontPadding="false"
+                    android:text="배송 정보"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="9sp" />
+
+                <Button
+                    android:id="@+id/shipping_edit_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="변경"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="9sp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/material_grey_700" />
+
+            <TextView
+                android:id="@+id/shipping_carrier_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                android:visibility="gone"
+                tools:text="택배사: CJ대한통운"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/shipping_tracking_no_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                android:visibility="gone"
+                tools:text="운송장번호: 1234567890"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/shipping_username_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="수령인: 김블리" />
+
+            <TextView
+                android:id="@+id/shipping_phone_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="연락처: 010-1234-1234" />
+
+            <TextView
+                android:id="@+id/shipping_address_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="배송지: 경기도 고양시 일산동구 777-7번지" />
+
+            <TextView
+                android:id="@+id/shipping_message_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="배송메모: 경비실에 맡겨주세요~" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:includeFontPadding="false"
+                android:text="주문자 정보"
+                android:textColor="@color/material_grey_700"
+                android:textSize="9sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/material_grey_700" />
+
+            <TextView
+                android:id="@+id/orderer_nickname_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="주문인ID: iu777" />
+
+            <TextView
+                android:id="@+id/orderer_phone_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="연락처: 010-1234-1234" />
+
+        </LinearLayout>
+
+        <!--<LinearLayout
+            android:id="@+id/shipping_seller_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:includeFontPadding="false"
+                    android:text="발송 정보"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="9sp" />
+
+                <Button
+                    android:id="@+id/digit_button_01"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:background="@color/material_white_1000"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:includeFontPadding="false"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:text="변경"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="9sp" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/material_grey_700" />
+
+            <TextView
+                android:id="@+id/shipping_carrier_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="택배사: CJ대한통운" />
+
+            <TextView
+                android:id="@+id/shipping_tracking_no_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/material_grey_700"
+                android:textSize="11sp"
+                tools:text="운송장번호: 1234567890" />
+
+        </LinearLayout>-->
+
+    </LinearLayout>
+
+    <!--<com.chaigene.petnolja.ui.loading.LoadingView
+        android:id="@+id/loading_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone" />-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/lottie_icecream"
+        tools:scaleType="centerCrop" />
+
+</FrameLayout>

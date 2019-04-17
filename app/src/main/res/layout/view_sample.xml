@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal">
+
+    <!--
+         ImageButton
+        style="@style/HoloButton.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:onClick="onActionsButtonClick"
+        android:src="@drawable/ic_menu_moreoverflow_normal_holo_light" /
+    -->
+
+    <TextView
+        style="@style/HoloButton.Borderless"
+        android:layout_width="43dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onActionsButtonClick"
+        android:text="{fa_bars}"
+        android:textColor="#ffffff"
+        android:textSize="22sp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/material_grey_200" />
+
+    <!--
+         Button
+        style="@style/HoloButton.Borderless"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="onSourceCodeClick"
+        android:text="Kosta LMS"
+        android:textColor="@color/bottom_bar_text" /
+    -->
+
+    <TextView
+        android:id="@+id/actionbarTitle"
+        style="@style/HoloButton.Borderless"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="{fa_info}  Kosta LMS"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/notificationBtnDivider"
+        android:layout_width="1dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/material_grey_200" />
+
+
+    <RelativeLayout
+        style="@android:style/Widget.ActionButton"
+        android:layout_width="43dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <TextView
+            android:id="@+id/notificationBtn"
+            style="@style/HoloButton.Borderless"
+            android:layout_width="43dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="0dp"
+            android:contentDescription="bell"
+            android:gravity="center"
+            android:onClick="onNotificationButtonClick"
+            android:text="{fa_bell}"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/notificationBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/notificationBtn"
+            android:layout_alignTop="@id/notificationBtn"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/shape_notification_badge_rounded"
+            android:gravity="center"
+            android:minWidth="18sp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="1dp"
+            android:textColor="#ffffffff"
+            android:textSize="12sp"
+            tools:text="10" />
+    </RelativeLayout>
+
+</LinearLayout>

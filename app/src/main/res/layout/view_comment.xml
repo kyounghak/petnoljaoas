@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/comment_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp">
+
+    <TextView
+        android:id="@+id/comment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textColor="@color/material_grey_700"
+        android:textSize="13sp"
+        tools:text="some_user Hello! nice to meet you. Yesterday was rainy. Today is sunny. Tomorrow will be windy. Every day has diffrent weather." />
+
+    <!--<TextView
+        android:id="@+id/date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/material_grey_400"
+        android:textSize="10sp"
+        tools:ignore="SmallSp"
+        tools:text="3분전" />-->
+
+</RelativeLayout>

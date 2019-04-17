@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        tool:src="@drawable/ic_tab_notification" />
+
+    <TextView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@android:id/icon"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginStart="-10dp"
+        android:layout_toEndOf="@android:id/icon"
+        android:background="@drawable/shape_notification_badge_rounded"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:paddingBottom="1.5dp"
+        android:paddingEnd="4.5dp"
+        android:paddingStart="4.5dp"
+        android:paddingTop="1.5dp"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

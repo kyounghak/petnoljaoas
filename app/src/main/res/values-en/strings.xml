@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Common -->
+    <string name="next">NEXT</string>
+
+    <!-- FishBun -->
+    <string name="fishbun_all_view_title">All</string>
+    <!--<string name="fishbun_nothing_selected">이미지를 하나 이상 선택해주세요.</string>-->
+    <!--<string name="fishbun_limit_reached">선택가능개수를 모두 선택하셨습니다.</string>-->
+    <string name="fishbun_action_bar_title">Album</string>
+
+    <!-- uCrop -->
+    <string name="ucrop_toolbar_title">Crop</string>
+    <string name="ucrop_menu_crop" tools:override="true">NEXT</string>
+    <string name="action_complete">Done</string>
+    <string name="actioin_back">Back</string>
+</resources>

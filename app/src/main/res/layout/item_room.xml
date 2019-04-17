@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_container"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <LinearLayout
+        android:id="@+id/delete_room_button"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="#FF3B30"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/trash" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/room_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
+
+        <com.chaigene.petnolja.ui.view.RoundedCornerLayout
+            android:id="@+id/profile_image_container"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14dp"
+            app:corner_radius="7dp">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/material_grey_200"
+                tools:ignore="ContentDescription" />
+
+        </com.chaigene.petnolja.ui.view.RoundedCornerLayout>
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_user_anonymous"
+            app:civ_border_color="#DDD"
+            app:civ_border_width="1dp" />-->
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="0dp"
+            android:layout_toEndOf="@+id/profile_image_container"
+            android:layout_toStartOf="@+id/time_text">
+
+            <TextView
+                android:id="@+id/nickname_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginBottom="6dp"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textColor="#333"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="some_user" />
+
+            <TextView
+                android:id="@+id/last_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textColor="#333"
+                android:textSize="13sp"
+                tools:text="안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/profile_image_container"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/material_grey_600"
+            android:textSize="12sp"
+            tools:text="오후 3:20" />
+
+        <TextView
+            android:id="@+id/unread_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/profile_image_container"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/shape_chat_room_badge_rounded"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingBottom="1.5dp"
+            android:paddingEnd="6dp"
+            android:paddingStart="6dp"
+            android:paddingTop="1.5dp"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:visibility="gone"
+            tools:text="5"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+
+</com.daimajia.swipe.SwipeLayout>

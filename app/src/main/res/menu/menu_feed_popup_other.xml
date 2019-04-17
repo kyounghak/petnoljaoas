@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 타인글 전용 -->
+    <item
+        android:id="@+id/action_message"
+        android:orderInCategory="100"
+        android:title="@string/popup_menu_action_message"
+        tools:title="Send message" />
+
+    <!-- 타인글 전용 -->
+    <item
+        android:id="@+id/action_report"
+        android:actionMenuTextColor="@color/material_red_500"
+        android:orderInCategory="100"
+        android:title="@string/popup_menu_action_report"
+        tools:title="Report" />
+
+</menu>

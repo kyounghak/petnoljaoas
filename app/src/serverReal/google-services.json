@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "987528319760",
+    "firebase_url": "https://nacky-b540a.firebaseio.com",
+    "project_id": "nacky-b540a",
+    "storage_bucket": "nacky-b540a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987528319760:android:90b27e2f74c5cf08",
+        "android_client_info": {
+          "package_name": "com.pwdr.nacky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987528319760-0ocmnnphfpmos2i2re6tcvpp0imu47pt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pwdr.nacky",
+            "certificate_hash": "d9790fb62ba9e040d853be69d6861f92169708b8"
+          }
+        },
+        {
+          "client_id": "987528319760-77n9mhn62ktq4uogt00tbupmbtghpolg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOKcI9fksvNngzvY71aK98VuPZtwcXSXU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987528319760-77n9mhn62ktq4uogt00tbupmbtghpolg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987528319760:android:cd6c38bdd68f44ce",
+        "android_client_info": {
+          "package_name": "com.pwdr.panda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987528319760-uta92hosrs79kq8hl9ffmhtongfb5g0l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pwdr.panda",
+            "certificate_hash": "554c9fa6c266aa8b66a672687103acb7b76cbebc"
+          }
+        },
+        {
+          "client_id": "987528319760-cdr1pk4s486nslteprgrprvdelhmsrtk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pwdr.panda",
+            "certificate_hash": "d9790fb62ba9e040d853be69d6861f92169708b8"
+          }
+        },
+        {
+          "client_id": "987528319760-77n9mhn62ktq4uogt00tbupmbtghpolg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOKcI9fksvNngzvY71aK98VuPZtwcXSXU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987528319760-77n9mhn62ktq4uogt00tbupmbtghpolg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

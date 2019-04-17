@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Source: https://github.com/frogermcs/InstaMaterial/blob/master/app/src/main/res/drawable/btn_feed_action.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:enterFadeDuration="@android:integer/config_shortAnimTime" android:exitFadeDuration="@android:integer/config_shortAnimTime">
+    <item android:drawable="@drawable/ic_follow_active" android:state_activated="true" />
+    <item android:drawable="@drawable/ic_follow" android:state_activated="false" />
+</selector><!--
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorControlHighlight">
+    &lt;!&ndash; Ripple mask - applied to all selector states &ndash;&gt;
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorAccent" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+    &lt;!&ndash; Selected state of item &ndash;&gt;
+    <item>
+        <selector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:enterFadeDuration="@android:integer/config_shortAnimTime"
+            android:exitFadeDuration="@android:integer/config_shortAnimTime">
+            <item
+                android:drawable="@drawable/ic_follow_active"
+                android:state_activated="true" />
+            <item
+                android:drawable="@drawable/ic_follow"
+                android:state_activated="false" />
+        </selector>
+    </item>
+</ripple>-->

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Thanks Khan (Ref: https://stackoverflow.com/a/42036268/4729203) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_grid_explore" />
+
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/material_white_1000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/empty_label_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="44dp"
+            android:lineSpacingMultiplier="1.2"
+            android:textAlignment="center"
+            android:textColor="@color/material_grey_800"
+            android:textSize="15sp"
+            tools:text="당신만의 메이커 공간을\n꾸며보세요." />
+
+        <Button
+            android:id="@+id/empty_guide_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:minHeight="0dp"
+            android:textAlignment="center"
+            android:textColor="@color/material_grey_500"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="메이커 글쓰기" />
+
+    </LinearLayout>
+
+</FrameLayout>

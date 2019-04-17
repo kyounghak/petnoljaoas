@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_rectangle_rounded_confirm_dialog"
+    android:minWidth="200dp"
+    android:orientation="vertical"
+    android:paddingStart="25dp"
+    android:paddingTop="15dp"
+    android:paddingEnd="25dp"
+    android:paddingBottom="15dp">
+
+    <TextView
+        android:id="@+id/highlight_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:includeFontPadding="false"
+        android:text="이벤트"
+        android:textAlignment="textStart"
+        android:textColor="#0ea661"
+        android:textSize="16sp" />
+
+    <!--<TextView
+        android:id="@+id/content_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="1.2"
+        android:textAlignment="center"
+        android:textColor="@color/material_grey_700"
+        android:textSize="12sp"
+        tools:text="Do you want to continue to buy?" />-->
+
+    <!-- EVENT MAIN IMAGE -->
+    <!--
+        TODO: 다운로딩 프로그레스바를 따로 두지 말고 런쳐에서 다운로드를 받아버린다.
+        따라서 런쳐에서 이미 팝업 여부를 확인하고 띄울 준비를 하고 있어야 한다.
+        이것을 어디에 저장해둘 것인가가 문제인데,
+        일단은 EventUtil을 싱글톤으로 만들고 필드를 둬서 저장하는 방식으로 구현하자.
+    -->
+
+    <!--<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/main_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:minHeight="200dp"
+            tools:src="@drawable/photo_male_8" />
+
+        <com.chaigene.petnolja.ui.view.CircleProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:progress="0"
+            app:progressBarThickness="1.5dp"
+            app:progressbarColor="@color/material_grey_300"
+            tools:visibility="visible" />
+
+    </FrameLayout>-->
+
+    <ImageView
+        android:id="@+id/event_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:adjustViewBounds="true"
+        android:minHeight="200dp"
+        tools:src="@drawable/photo_male_8" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/do_not_show_again_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="다시 보지 않기"
+            android:textAlignment="center"
+            android:textColor="@color/material_grey_900"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/close_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="닫기"
+            android:textAlignment="center"
+            android:textColor="@color/material_grey_900"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

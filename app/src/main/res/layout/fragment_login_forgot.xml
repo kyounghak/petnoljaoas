@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="vertical"
+    tools:ignore="ContentDescription">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="11dp"
+                android:layout_marginTop="43dp"
+                android:includeFontPadding="false"
+                android:text="@string/label_find_account"
+                android:textColor="@color/material_grey_700"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="11dp"
+                android:includeFontPadding="false"
+                android:text="※"
+                android:textColor="@color/material_grey_500"
+                android:textSize="15sp"
+                tools:text="※" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="34dp"
+                android:includeFontPadding="false"
+                android:text="@string/label_find_account_detail"
+                android:textAlignment="center"
+                android:textColor="@color/material_grey_600"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/identifier_input"
+                android:layout_width="267dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_edittext_forgot_account"
+                android:hint="@string/hint_forgot_account_identifier"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textColor="@color/material_grey_700"
+                android:textColorHint="@color/material_grey_400"
+                android:textSize="13sp">
+
+                <requestFocus />
+            </EditText>
+
+            <Button
+                android:id="@+id/send_reset_link_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="267dp"
+                android:layout_height="31dp"
+                android:background="@drawable/selector_button_forgot_account"
+                android:text="@string/button_send_reset_link"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom"
+            android:background="@color/material_grey_100"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_300" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/label_signup"
+                    android:textColor="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:text="No account?" />
+
+                <TextView
+                    android:id="@+id/signup_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/button_signup"
+                    android:textColor="#376092"
+                    android:textSize="13sp"
+                    tools:text="Sign up" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</ScrollView>

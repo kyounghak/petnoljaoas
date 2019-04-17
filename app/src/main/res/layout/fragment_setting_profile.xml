@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="43dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:orientation="vertical">
+
+                <com.chaigene.petnolja.ui.view.RoundedCornerLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:corner_radius="8dp">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bg_button_profile_image" />
+
+                </com.chaigene.petnolja.ui.view.RoundedCornerLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/nickname_input"
+                    android:layout_width="267dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="9dp"
+                    android:background="@drawable/selector_edittext_setting_profile"
+                    android:hint="사용자 이름"
+                    android:inputType="textNoSuggestions"
+                    android:maxLines="1"
+                    android:paddingEnd="12dp"
+                    android:paddingStart="12dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_400"
+                    android:textSize="13sp">
+
+                    <requestFocus />
+                </EditText>
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/identifier_input"
+                    android:layout_alignEnd="@id/identifier_input"
+                    android:layout_alignTop="@id/identifier_input"
+                    android:layout_marginEnd="8dp"
+                    android:focusable="false"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <!-- TODO: https://stackoverflow.com/a/30703723/4729203 참조 -->
+            <!-- 최대 줄 수를 강제로 지정한다 -->
+            <EditText
+                android:id="@+id/description_input"
+                android:layout_width="267dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_edittext_forgot_account"
+                android:gravity="top"
+                android:hint="프로필 설명 (옵션)"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:minHeight="60dp"
+                android:paddingBottom="6dp"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:textColor="@color/material_grey_700"
+                android:textColorHint="@color/material_grey_400"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/next_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="267dp"
+                android:layout_height="31dp"
+                android:background="@drawable/selector_button_forgot_account"
+                android:text="@string/next"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/done_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="267dp"
+                android:layout_height="31dp"
+                android:background="@drawable/selector_button_forgot_account"
+                android:text="완료"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom"
+            android:background="@color/material_grey_100"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_300" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:includeFontPadding="false"
+                    android:text="이미 계정이 있으신가요?"
+                    android:textColor="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:text="Have account?" />
+
+                <TextView
+                    android:id="@+id/signin_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="로그인하기"
+                    android:textColor="#376092"
+                    android:textSize="13sp"
+                    tools:text="Sign in" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</ScrollView>

@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_chat"
+        android:orderInCategory="100"
+        android:title="메시지"
+        app:actionLayout="@layout/view_menu_chat"
+        app:showAsAction="always"
+        tools:icon="@drawable/ic_chat" />
+
+    <!--<item
+        android:id="@+id/menu_chat"
+        android:icon="@drawable/ic_chat"
+        android:orderInCategory="100"
+        android:title="Menu Direct"
+        app:showAsAction="always" />-->
+
+</menu>

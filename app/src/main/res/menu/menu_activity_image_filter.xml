@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<item
+        android:id="@+id/action_confirm"
+        android:icon="@drawable/ic_done_white_24dp"
+        android:orderInCategory="0"
+        android:title="@string/next"
+        app:showAsAction="always" />-->
+
+    <item
+        android:id="@+id/action_confirm"
+        android:orderInCategory="0"
+        android:title="@string/next"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_loader"
+        android:enabled="false"
+        android:icon="@drawable/ucrop_vector_loader_animated"
+        android:title=""
+        app:showAsAction="ifRoom" />
+
+</menu>

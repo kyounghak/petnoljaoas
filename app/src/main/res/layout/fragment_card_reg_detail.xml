@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|top"
+    android:background="@color/material_white_1000"
+    android:clickable="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="11dp"
+        android:layout_marginTop="43dp"
+        android:includeFontPadding="false"
+        android:text="결제하실 신용/체크카드를 등록해주세요."
+        android:textColor="@color/material_grey_700"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="11dp"
+        android:includeFontPadding="false"
+        android:text="※"
+        android:textColor="@color/material_grey_500"
+        android:textSize="15sp"
+        tools:text="※" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="60dp"
+        android:includeFontPadding="false"
+        android:text="본인명의의 카드만 등록 가능합니다."
+        android:textAlignment="center"
+        android:textColor="@color/material_grey_600"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="35dp"
+        android:paddingEnd="48dp"
+        android:paddingStart="48dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:includeFontPadding="false"
+                android:maxLength="10"
+                android:text="카드번호"
+                android:textColor="@color/material_black_1000"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/card_no_input_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:background="@color/transparent"
+                    android:hint="1234"
+                    android:includeFontPadding="false"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:includeFontPadding="false"
+                    android:text="-"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/card_no_input_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:background="@color/transparent"
+                    android:hint="1234"
+                    android:includeFontPadding="false"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:includeFontPadding="false"
+                    android:text="-"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/card_no_input_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="1234"
+                    android:includeFontPadding="false"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:includeFontPadding="false"
+                    android:text="-"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/card_no_input_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:background="@color/transparent"
+                    android:hint="1234"
+                    android:includeFontPadding="false"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/material_grey_400" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:includeFontPadding="false"
+                android:maxLength="10"
+                android:text="카드유효기간"
+                android:textColor="@color/material_black_1000"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/exp_date_month_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:background="@color/transparent"
+                    android:hint="MM"
+                    android:includeFontPadding="false"
+                    android:inputType="date"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:includeFontPadding="false"
+                    android:text="/"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/exp_date_year_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:background="@color/transparent"
+                    android:hint="YY"
+                    android:includeFontPadding="false"
+                    android:inputType="date"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/material_grey_400" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:includeFontPadding="false"
+                android:maxLength="10"
+                android:text="비밀번호 앞 2자리"
+                android:textColor="@color/material_black_1000"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="0dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/pin_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="OO"
+                    android:includeFontPadding="false"
+                    android:inputType="numberPassword"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:enabled="false"
+                    android:hint="00"
+                    android:includeFontPadding="false"
+                    android:inputType="numberPassword"
+                    android:text="00"
+                    android:textAlignment="center"
+                    android:textColor="@color/material_black_1000"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/material_grey_400" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="22dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/confirm_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@drawable/selector_background_order_summary_button"
+            android:enabled="false"
+            android:text="완료"
+            android:textColor="@color/material_white_1000"
+            tools:enabled="false" />
+
+    </LinearLayout>
+
+</LinearLayout>

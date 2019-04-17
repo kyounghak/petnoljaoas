@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@android:color/white"
+    android:theme="@style/ActionBar"
+    app:contentInsetEnd="0dp"
+    app:contentInsetStart="0dp"
+    app:contentInsetStartWithNavigation="0dp"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <!-- Ref: https://stackoverflow.com/a/38302389/4729203 -->
+    <LinearLayout
+        android:id="@+id/search_container"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="7dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="7dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_rectangle_rounded_search"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_search" />
+
+            <EditText
+                android:id="@+id/search_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="@string/search"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/material_grey_800"
+                android:textColorHint="@color/material_grey_500"
+                android:textSize="12sp"
+                tools:hint="Search" />
+
+            <ProgressBar
+                android:id="@+id/loading_view"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!--<RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/nickname_input"
+                android:layout_width="267dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="9dp"
+                android:background="@drawable/background_edittext_forgot_account"
+                android:hint="사용자 이름"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textColor="@color/material_grey_700"
+                android:textColorHint="@color/material_grey_400"
+                android:textSize="13sp"
+                tools:hint="Username">
+
+                <requestFocus />
+            </EditText>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/identifier_input"
+                android:layout_alignEnd="@id/identifier_input"
+                android:layout_alignTop="@id/identifier_input"
+                android:layout_marginEnd="8dp"
+                android:focusable="false"
+                android:visibility="gone" />
+
+        </RelativeLayout>-->
+
+        <TextView
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:textSize="12sp"
+            tools:text="Cancel" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

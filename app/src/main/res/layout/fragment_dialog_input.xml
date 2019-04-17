@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_rectangle_rounded_confirm_dialog"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:minWidth="240dp"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:paddingEnd="35dp"
+    android:paddingStart="35dp"
+    android:paddingTop="15dp">
+
+    <TextView
+        android:id="@+id/highlight_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="#0ea661"
+        android:textSize="16sp"
+        tools:text="제목" />
+
+    <TextView
+        android:id="@+id/content_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="1.2"
+        android:textAlignment="center"
+        android:textColor="@color/material_grey_700"
+        android:textSize="12sp"
+        tools:text="운송장 번호를 입력하고 작업을 완료해주세요." />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/content_spinner"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="2dp"
+        android:clickable="true"
+        android:dropDownWidth="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:minWidth="165dp"
+        android:spinnerMode="dropdown"
+        android:theme="@style/Spinner"
+        android:visibility="gone"
+        tools:dropDownSelector="@color/colorAccent"
+        tools:entries="@array/shipping_tracking_carrier_names"
+        tools:visibility="visible">
+
+        <requestFocus />
+    </androidx.appcompat.widget.AppCompatSpinner>
+
+    <EditText
+        android:id="@+id/content_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="14dp"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="1.2"
+        android:minWidth="165dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:textAlignment="inherit"
+        android:textColor="@color/material_grey_700"
+        android:textSize="12sp"
+        tools:hint="운송장 번호 입력"
+        tools:text="4300932382039" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/confirm_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="Y"
+            android:textAlignment="center"
+            android:textColor="@color/material_grey_700"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/deny_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="N"
+            android:textAlignment="center"
+            android:textColor="@color/material_grey_700"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

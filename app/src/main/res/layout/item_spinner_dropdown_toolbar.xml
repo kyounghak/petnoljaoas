@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    이 Attribute는 삭제해도 변동사항이 없기 때문에 삭제처리 한다.
+    style="?android:attr/spinnerDropDownItemStyle"
+-->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_spinner_dropdown_item_bg"
+    android:includeFontPadding="false"
+    android:paddingBottom="14dp"
+    android:paddingEnd="22dp"
+    android:paddingStart="22dp"
+    android:paddingTop="14dp"
+    android:textAlignment="center"
+    android:textColor="@drawable/selector_spinner_dropdown_item_text"
+    android:textSize="18sp" />

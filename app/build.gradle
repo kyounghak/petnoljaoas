@@ -1,0 +1,399 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
+
+final enum Flavors {
+    final static String SERVER_TEST = "serverTest"
+    final static String SERVER_REAL = "serverReal"
+}
+
+/**
+ * Build constants
+ */
+class Constants {
+    final static int VERSION_CODE = 1
+    final static String VERSION_NAME = "0.0.1"
+    final static String FACEBOOK_APPLICATION_ID_TEST = "1565002363567186"
+    final static String FACEBOOK_APPLICATION_ID_REAL = "168773743679550"
+    final static String STORAGE_BUCKET_TOKYO_TEST = "gs://petnolja-dev.appspot.com"
+    final static String STORAGE_BUCKET_TOKYO_REAL = "gs://petnolja-dev.appspot.com"
+
+    final static String FUNCTIONS_BASE_URL_TEST = "https://asia-northeast1-petnolja-dev.cloudfunctions.net/"
+    final static String FUNCTIONS_BASE_URL_REAL = ""
+
+    final static String KAKAO_AUTH_VALIDATION_ENDPOINT_TEST =
+            "https://us-central1-panda-server-test.cloudfunctions.net/user-verifyKakaoToken"
+    final static String KAKAO_AUTH_VALIDATION_ENDPOINT_REAL =
+            "https://us-central1-nacky-b540a.cloudfunctions.net/user-verifyKakaoToken"
+
+    final static String NAVER_AUTH_VALIDATION_ENDPOINT = FUNCTIONS_BASE_URL_TEST + "user-verifyNaverToken"
+
+    final static String NAVER_OAUTH_CLIENT_ID = "0n0_7nKAgANUmuVZZ0Zs"
+    final static String NAVER_OAUTH_CLIENT_SECRET = "qz_ryjMDf4"
+    final static String NAVER_OAUTH_CLIENT_NAME = "펫놀자"
+
+    //final static String GOOGLE_MAPS_API_KEY_DEBUG = "="
+    //final static String GOOGLE_MAPS_API_KEY_RELEASE = "="
+    //final static String FREEFI_REST_SERVER_HOST_EVENT = "https://event.freefi.co.kr:8443/event/"
+    //final static String FREEFI_REST_SERVER_PAGE_EVENT_JOIN = "event_join"
+    //final static String FREEFI_REST_SERVER_PAGE_EVENT_MISSION = "event_mission"
+    //final static String FREEFI_REST_SERVER_PAGE_EVENT_AUTH = "event_auth"
+    //final static String FREEFI_REST_SERVER_PAGE_EVENT_RECOMM = "event_recomm"
+    //final static String FREEFI_REST_SERVER_PAGE_EVENT_GIFT = "event_gift"
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        applicationId "com.chaigene.petnolja"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode Constants.VERSION_CODE;
+        versionName Constants.VERSION_NAME;
+        // Ref: https://issuetracker.google.com/issues/37325444
+        vectorDrawables.useSupportLibrary = true
+        /*jackOptions {
+            enabled true
+        }*/
+        multiDexEnabled true
+        // https://stackoverflow.com/a/44105240/4729203
+        // flavorDimensions "versionCode"
+        // flavorDimensions "default"
+        flavorDimensions "server"
+    }
+
+    buildTypes {
+        debug {
+
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            /*signingConfig getSigningConfig()
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def appName = "Panda"
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def fileName = appName + " " + defaultConfig.versionName + ".apk"
+                        output.outputFile = new File((String) outputFile.parent, (String) fileName)
+                    }
+                }
+            }*/
+        }
+
+        /*debug {
+            resValue "string", "google_maps_api_key", Constants.GOOGLE_MAPS_API_KEY_DEBUG
+            buildConfigField "String", "NO_SERV_USER_ID_REAL", "\"" + Constants.NO_SERV_USER_ID_DEBUG + "\""
+        }
+        release {
+            resValue "string", "google_maps_api_key", Constants.GOOGLE_MAPS_API_KEY_RELEASE
+            buildConfigField "String", "NO_SERV_USER_ID_REAL", "\"" + Constants.NO_SERV_USER_ID_RELEASE + "\""
+        }*/
+    }
+
+    productFlavors {
+        serverTest {
+            dimension "server"
+
+            applicationIdSuffix ".test"
+
+            resValue "string", "app_name", "펫놀자 (test)"
+            resValue "string", "facebook_application_id", Constants.FACEBOOK_APPLICATION_ID_TEST
+            resValue "string", "facebook_login_protocol_scheme", "fb" + Constants.FACEBOOK_APPLICATION_ID_TEST
+
+            buildConfigField "String", "STORAGE_BUCKET_TOKYO", "\"" + Constants.STORAGE_BUCKET_TOKYO_TEST + "\""
+            buildConfigField "String", "KAKAO_AUTH_VALIDATION_ENDPOINT", "\"" + Constants.KAKAO_AUTH_VALIDATION_ENDPOINT_TEST + "\""
+        }
+        serverReal {
+            dimension "server"
+
+            resValue "string", "app_name", "펫놀자"
+            resValue "string", "facebook_application_id", Constants.FACEBOOK_APPLICATION_ID_REAL
+            resValue "string", "facebook_login_protocol_scheme", "fb" + Constants.FACEBOOK_APPLICATION_ID_REAL
+
+            buildConfigField "String", "STORAGE_BUCKET_TOKYO", "\"" + Constants.STORAGE_BUCKET_TOKYO_REAL + "\""
+            buildConfigField "String", "KAKAO_AUTH_VALIDATION_ENDPOINT", "\"" + Constants.KAKAO_AUTH_VALIDATION_ENDPOINT_REAL + "\""
+        }
+    }
+
+    applicationVariants.all { variant ->
+        buildConfigField "String", "FLAVOR_SERVER_TEST", "\"serverTest\""
+        buildConfigField "String", "FLAVOR_SERVER_REAL", "\"serverReal\""
+
+        buildConfigField "String", "NAVER_AUTH_VALIDATION_ENDPOINT", "\"" + Constants.NAVER_AUTH_VALIDATION_ENDPOINT + "\""
+        buildConfigField "String", "NAVER_OAUTH_CLIENT_ID", "\"" + Constants.NAVER_OAUTH_CLIENT_ID + "\""
+        buildConfigField "String", "NAVER_OAUTH_CLIENT_SECRET", "\"" + Constants.NAVER_OAUTH_CLIENT_SECRET + "\""
+        buildConfigField "String", "NAVER_OAUTH_CLIENT_NAME", "\"" + Constants.NAVER_OAUTH_CLIENT_NAME + "\""
+
+        /*variant.outputs.all {
+            def flavor = ""
+            if (getCurrentFlavor() == Flavors.SERVER_REAL) flavor = "real"
+            else if (getCurrentFlavor() == Flavors.SERVER_TEST) flavor = "test"
+
+            def build = ""
+            if (variant.buildType.name == "debug") build = "debug"
+            else if (variant.buildType.name == "release") build = "release"
+
+            // def fileName = "Pandaz-${flavor}-${build}-v${variant.versionName}.apk"
+            def fileName = "Pandaz-${flavor}-${build}.apk"
+            logger.quiet("fileName:" + fileName)
+
+            if (variant.buildType.name == "debug") {
+                outputFileName = "../../../../../../apk/" + fileName
+            }
+            if (variant.buildType.name == "release") {
+                outputFileName = "../../" + fileName
+            }
+        }*/
+
+        /*variant.assemble.doLast {
+            logger.lifecycle("doLast")
+
+            def outputPath = ""
+            if (variant.buildType.name == "debug") {
+                outputPath = "${buildDir}/outputs/apk"
+            }
+            if (variant.buildType.name == "release") {
+                outputPath = "${rootDir}/apk"
+            }
+            println "outputPath:" + outputPath
+
+            def flavor = getCurrentFlavor()
+            println "flavor:" + flavor
+
+            delete "${outputPath}/${flavor}/"
+        }*/
+    }
+
+    dexOptions {
+        jumboMode true
+        preDexLibraries false
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'GoogleAppIndexingWarning'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+        pickFirst 'AndroidManifest.xml'
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha4', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+
+    implementation project(path: ':lib_gpuimage')
+    implementation project(path: ':ucrop')
+
+    // CosmoCalendar
+    implementation project(path: ':cosmocalendar')
+
+    // AndroidX
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha03'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha03'
+    implementation 'androidx.annotation:annotation:1.1.0-alpha02'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0-alpha01'
+    implementation 'androidx.browser:browser:1.0.0'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Design
+    implementation 'com.google.android.material:material:1.1.0-alpha05'
+
+    /*implementation 'com.google.android.gms:play-services-base:16.0.2'
+    implementation 'com.google.android.gms:play-services-basement:16.0.2'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:16.0.2'
+    implementation 'com.google.android.gms:play-services-tasks:16.0.2'*/
+
+    // implementation 'com.google.android.gms:play-services-auth:16.0.2'
+    implementation 'com.google.android.gms:play-services-measurement-base:16.4.0'
+
+    // ?
+    // implementation 'com.google.firebase:firebase-analytics-impl:16.4.0'
+
+    // Google's Firebase
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    implementation 'com.firebaseui:firebase-ui-database:4.3.1'
+    implementation 'com.firebaseui:firebase-ui-firestore:4.3.1'
+    implementation 'com.firebaseui:firebase-ui-storage:4.3.1'
+
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-auth:16.2.0'
+    implementation 'com.google.firebase:firebase-firestore:18.2.0'
+    implementation 'com.google.firebase:firebase-database:16.1.0'
+    implementation 'com.google.firebase:firebase-storage:16.1.0'
+    implementation 'com.google.firebase:firebase-messaging:17.5.0'
+    implementation 'com.google.firebase:firebase-config:16.4.1'
+    implementation 'com.google.firebase:firebase-invites:16.1.1'
+    implementation 'com.google.firebase:firebase-functions:16.3.0'
+
+    // Crashlytics
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') { transitive = true }
+
+    // Facebook SDK
+    implementation 'com.facebook.android:facebook-android-sdk:4.35.0'
+
+    // Kakao SDK
+    implementation 'com.kakao.sdk:usermgmt:1.1.33'
+
+    // Naver SDK
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.5'
+
+    // Google's Volley
+    implementation 'com.android.volley:volley:1.1.1'
+
+    // Square's OkHttp
+    // implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.4.1'
+    // implementation group: 'com.squareup.okhttp3', name: 'okhttp-urlconnection', version: '3.4.1'
+
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
+
+    // Square's LeakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    // Jake Wharton's Butter Knife
+    // implementation 'com.jakewharton:butterknife:8.7.0'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    // Ripple
+    implementation 'com.balysv:material-ripple:1.0.2'
+
+    // CircleImageView
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    // RoundedImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'pub.devrel:easypermissions:2.0.0'
+
+    // Glide
+    // implementation 'com.github.bumptech.glide:glide:4.8.0'
+    // annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // AndroidSwipeLayout
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+
+    // FishBun
+    implementation 'com.sangcomz:FishBun:0.8.4'
+
+    // uCrop
+    // implementation 'com.yalantis:ucrop:2.2.0'
+    // implementation 'com.yalantis:ucrop:2.2.0-native'
+
+    // AndroidBottomSheet
+    implementation 'com.github.michael-rapp:android-bottom-sheet:1.4.2'
+
+    // KeyboardVisibilityEvent
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
+
+    // Material-ViewPagerIndicator
+    implementation 'com.github.ronaldsmartin:Material-ViewPagerIndicator:1.0.4'
+
+    // EventBus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    // implementation 'com.twitter.sdk.android:twitter:3.1.1'
+
+    // Google libphonenumber
+    implementation group: 'com.googlecode.libphonenumber', name: 'libphonenumber', version: '8.10.0'
+
+    // Android Tooltip
+    implementation 'it.sephiroth.android.library.targettooltip:target-tooltip-library:1.3.15'
+
+    // Lottie
+    implementation 'com.airbnb.android:lottie:3.0.0'
+}
+
+apply plugin: 'com.google.gms.google-services'
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    String taskReqStr = gradle.getStartParameter().getTaskRequests().toString()
+    Pattern pattern
+    if (taskReqStr.contains("assemble")) {
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    } else {
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+    }
+    Matcher matcher = pattern.matcher(taskReqStr)
+    if (matcher.find()) {
+        String flavor = matcher.group(1)
+        // This makes first character to lowercase.
+        char[] c = flavor.toCharArray()
+        c[0] = Character.toLowerCase(c[0])
+        flavor = new String(c)
+        println "getCurrentFlavor:" + flavor
+        return flavor
+    } else {
+        println "getCurrentFlavor:cannot_find_current_flavor"
+        return ""
+    }
+}
+
+//apply plugin: 'java'
+//
+//task finalize << {
+//    println('finally!')
+//}
+//
+//build.finalizedBy(finalize)
+
+afterEvaluate {
+    /*if (project.hasProperty("assembleFatRelease")) {
+        assembleFatRelease.finalizedBy(crashlyticsUploadSymbolsFatRelease)
+    } else {
+        assembleFatDebug.finalizedBy(crashlyticsUploadSymbolsFatDebug)
+    }*/
+    // logger.quiet()
+}
+
+// assembleServerRealDebug.finalizedBy()
+
+//assembleDebug.doLast {
+//    // logger.quiet(getProjectDir());
+//}
+
+// assembleRelease.finalizedBy(copyAARToCommonLibs)
+

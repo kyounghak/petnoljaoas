@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_pink_100"
+    android:clickable="true"
+    tools:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/article_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <!--
+            isScrollCOntainer: 현재 뷰가 스크롤컨테이너라는 것을 명시함으로써 뷰의 높이가 차일드뷰의 영향을 받지않음.
+        -->
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/article_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="24dp"
+            android:paddingTop="24dp"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Header -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="bottom"
+                        android:orientation="horizontal"
+                        android:paddingEnd="0dp"
+                        android:paddingStart="16dp">
+
+                        <com.chaigene.petnolja.ui.view.RoundedCornerLayout
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="7dp"
+                            app:corner_radius="5dp">
+
+                            <ImageView
+                                android:id="@+id/profile_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/material_grey_200"
+                                tools:ignore="ContentDescription" />
+
+                        </com.chaigene.petnolja.ui.view.RoundedCornerLayout>
+
+                        <TextView
+                            android:id="@+id/nickname_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/material_grey_800"
+                            android:textSize="15sp"
+                            tools:text="wonsuc" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingEnd="12dp"
+                            android:paddingStart="0dp">
+
+                            <ImageView
+                                android:id="@+id/follow_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="8dp"
+                                android:clickable="true"
+                                android:focusableInTouchMode="false"
+                                android:src="@drawable/selector_button_follow"
+                                android:visibility="gone"
+                                tools:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/option_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="24dp"
+                                android:clickable="true"
+                                android:focusableInTouchMode="false"
+                                android:src="@drawable/ic_more" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/buy_button"
+                        android:layout_width="44dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/shape_rectangle_rounded_buy_button"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="BUY"
+                        android:textColor="#33a096"
+                        android:textSize="13sp"
+                        android:textStyle="normal"
+                        android:visibility="gone"
+                        tools:text="BUY" />
+
+                </FrameLayout>
+
+                <!-- Photo -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/main_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:minHeight="200dp"
+                        tools:src="@drawable/photo_male_8" />
+
+                    <com.chaigene.petnolja.ui.view.CircleProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        app:progress="0"
+                        app:progressBarThickness="1.5dp"
+                        app:progressbarColor="@color/material_grey_300"
+                        tools:visibility="visible" />
+
+                </FrameLayout>
+
+                <!-- Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="top"
+                    android:orientation="horizontal"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/like_button_container"
+                        android:layout_width="42dp"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false">
+
+                        <ImageView
+                            android:id="@+id/like_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:focusableInTouchMode="false"
+                            android:src="@drawable/selector_button_like"
+                            tools:src="@drawable/selector_button_like" />
+
+                        <TextView
+                            android:id="@+id/like_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|bottom"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/material_grey_600"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp"
+                            tools:text="5459" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/comment_button_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false">
+
+                        <ImageView
+                            android:id="@+id/comment_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="10dp"
+                            android:clickable="true"
+                            android:focusableInTouchMode="false"
+                            android:src="@drawable/ic_comment" />
+
+                        <TextView
+                            android:id="@+id/comment_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|bottom"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/material_grey_600"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp"
+                            tools:text="23422" />
+
+                    </FrameLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <!--<ImageView
+                        android:id="@+id/save_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/ic_save"
+                        android:visibility="visible" />-->
+
+                    <FrameLayout
+                        android:id="@+id/save_button_container"
+                        android:layout_width="42dp"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false">
+
+                        <ImageView
+                            android:id="@+id/save_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:focusableInTouchMode="false"
+                            android:src="@drawable/selector_button_save" />
+
+                        <TextView
+                            android:id="@+id/save_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|bottom"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/material_grey_600"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp"
+                            tools:text="5459" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <!-- 글 내용 -->
+                <LinearLayout
+                    android:id="@+id/feed_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:visibility="gone"
+                    tools:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/feed_content_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/material_grey_700"
+                        android:textSize="13sp"
+                        tools:text="Panda #로타 #사진첩 #Girls" />
+
+                    <TextView
+                        android:id="@+id/feed_date_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/material_grey_400"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        tools:ignore="SmallSp"
+                        tools:text="3 minutes ago" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/talent_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="상품명"
+                        android:textColor="@color/material_grey_500"
+                        android:textSize="11sp" />-->
+
+                    <TextView
+                        android:id="@+id/talent_product_title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/colorAccentLight"
+                        android:textSize="13sp"
+                        tools:text="판다 사진 시리즈7" />
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="상품설명"
+                        android:textColor="@color/material_grey_500"
+                        android:textSize="11sp" />-->
+
+                    <TextView
+                        android:id="@+id/talent_content_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/material_grey_700"
+                        android:textSize="13sp"
+                        tools:text="#로타 #사진첩 #Girls" />
+
+                    <!--사진작가 판다입니다. 이번 작품은 <판다 사진 시리즈7> 입니다. \n1년여동안 세계 각국을 돌며 만든 사진입니다. \n\n#로타 #사진첩 #Girls-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="환불 및 보상정책"
+                        android:textColor="@color/material_grey_500"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/talent_product_services_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:textColor="@color/material_grey_700"
+                        android:textSize="13sp"
+                        tools:text="단순 변심으로는 환불이 되지 않습니다." />
+
+                    <TextView
+                        android:id="@+id/talent_date_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/material_grey_400"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        tools:ignore="SmallSp"
+                        tools:text="3분전" />
+
+                </LinearLayout>
+
+                <!-- TODO: 여기에 댓글이 들어가야함 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/comment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/view_comment" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- 메세지 입력 바 -->
+        <FrameLayout
+            android:id="@+id/input_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EEE"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/comment_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_chat_input_border"
+                    android:gravity="top"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textSize="13sp"
+                    tools:text="안녕하세요" />
+
+                <Button
+                    android:id="@+id/send_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_chat_send_button"
+                    android:contentDescription="Send"
+                    android:enabled="false"
+                    android:minHeight="0dp"
+                    android:text="@string/send"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </FrameLayout>
+        <!-- /메세지 입력 바 -->
+
+    </LinearLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

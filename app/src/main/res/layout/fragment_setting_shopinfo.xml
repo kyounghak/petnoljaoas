@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FDFDFD"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="44dp"
+                android:background="@color/material_grey_100"
+                android:paddingEnd="0dp"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:text="Account"
+                android:textColor="@color/material_grey_400"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <RelativeLayout
+                android:id="@+id/email_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical">
+
+                <!--<TextView
+                    android:id="@+id/email_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:text="panda@story-panda.com" />-->
+
+                <EditText
+                    android:id="@+id/email_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:enabled="false"
+                    android:hint="이메일"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:text="panda@story-panda.com" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <LinearLayout
+                android:id="@+id/phone_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@android:color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="8dp">
+
+                <EditText
+                    android:id="@+id/phone_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="휴대폰 번호"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <!-- 이미 폰번호가 등록되어 있을 때 -->
+                    <Button
+                        android:id="@+id/phone_edit_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingEnd="8dp"
+                        android:paddingStart="8dp"
+                        android:text="변경"
+                        android:textSize="13sp"
+                        android:visibility="gone"
+                        tools:background="@color/material_white_1000"
+                        tools:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/phone_verify_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp"
+                            android:text="인증"
+                            android:textSize="13sp"
+                            android:visibility="gone"
+                            tools:background="@color/material_white_1000"
+                            tools:enabled="false"
+                            tools:visibility="visible" />
+
+                        <Button
+                            android:id="@+id/phone_verify_resend_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp"
+                            android:text="재전송"
+                            android:textSize="13sp"
+                            android:visibility="visible"
+                            tools:background="@color/material_white_1000" />
+
+                        <Button
+                            android:id="@+id/phone_verify_cancel_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp"
+                            android:text="취소"
+                            android:textColor="@color/material_red_500"
+                            android:textSize="13sp"
+                            android:visibility="gone"
+                            tools:background="@color/material_white_1000"
+                            tools:visibility="gone" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <!-- 폰번호 인증코드 입력 -->
+            <LinearLayout
+                android:id="@+id/phone_sms_code_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/phone_sms_code_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="6자리 숫자를 입력해주세요."
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:paddingEnd="0dp"
+                        android:paddingStart="16dp"
+                        android:textColor="@color/material_grey_700"
+                        android:textColorHint="@color/material_grey_500"
+                        android:textSize="13sp"
+                        tools:ignore="TextFields" />
+
+                    <Button
+                        android:id="@+id/phone_verify_code_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="확인"
+                        android:textSize="13sp"
+                        tools:background="@color/material_white_1000" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/material_grey_200" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:text="Edit profile"
+                    android:textColor="@color/material_grey_700"
+                    android:textSize="13sp" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="0dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FDFDFD"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="44dp"
+                android:background="@color/material_grey_100"
+                android:paddingEnd="0dp"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:text="Account"
+                android:textColor="@color/material_grey_400"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <RelativeLayout
+                android:id="@+id/username_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/username_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:hint="이름"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <RelativeLayout
+                android:id="@+id/address_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/address_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:hint="주소지"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <LinearLayout
+                android:id="@+id/detail_address_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <EditText
+                        android:id="@+id/detail_address_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="상세주소"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingEnd="0dp"
+                        android:paddingStart="16dp"
+                        android:textColor="@color/material_grey_700"
+                        android:textColorHint="@color/material_grey_500"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/detail_address_confirm_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="저장"
+                        android:textSize="13sp"
+                        tools:background="@color/material_white_1000" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/material_grey_200" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <!-- 계좌정보 (판매자에게만 보여야 함) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FDFDFD"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="44dp"
+                android:background="@color/material_grey_100"
+                android:paddingEnd="0dp"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:text="Account"
+                android:textColor="@color/material_grey_400"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <RelativeLayout
+                android:id="@+id/bank_account_holder_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/bank_account_holder_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:hint="예금주"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:hint="Account holder" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <RelativeLayout
+                android:id="@+id/bank_name_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/bank_name_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:hint="은행명"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:hint="Bank name" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+            <RelativeLayout
+                android:id="@+id/bank_account_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/bank_account_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:hint="계좌번호"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_500"
+                    android:textSize="13sp"
+                    tools:hint="Bank account" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_200" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

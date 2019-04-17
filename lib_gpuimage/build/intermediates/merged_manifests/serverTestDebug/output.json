@@ -1,0 +1,1 @@
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":-1,"enabled":true,"outputFile":"lib_gpuimage-serverTest-debug.aar","fullName":"serverTestDebug","baseName":"serverTest-debug"},"path":"../../library_manifest/serverTestDebug/AndroidManifest.xml","properties":{"packageId":"jp.co.cyberagent.android.gpuimage","split":""}}]

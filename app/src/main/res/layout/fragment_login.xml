@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="vertical"
+    tools:ignore="ContentDescription">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:descendantFocusability="afterDescendants"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="267dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/identifier_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_login_identifier"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_400"
+                    android:textSize="13sp">
+
+                    <requestFocus />
+                </EditText>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/material_grey_400" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="267dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="21dp"
+                android:orientation="vertical">
+
+                <!-- Ref: https://stackoverflow.com/a/23740834/4729203 -->
+                <EditText
+                    android:id="@+id/password_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_login_password"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_400"
+                    android:textSize="13sp"
+                    tools:ignore="InvalidImeActionId" />
+
+                <!--<EditText
+                    android:id="@+id/password_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_login_password"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/material_grey_700"
+                    android:textColorHint="@color/material_grey_400"
+                    android:textSize="13sp"
+                    tools:hint="Password" />-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/material_grey_400" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/email_login_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="267dp"
+                android:layout_height="41dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/selector_button_login_email"
+                android:text="@string/button_login_email"
+                android:textColor="@color/material_grey_800" />
+
+            <Button
+                android:id="@+id/facebook_login_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="267dp"
+                android:layout_height="41dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/selector_button_login_facebook"
+                android:text="@string/button_login_facebook"
+                android:textColor="@android:color/white" />
+
+            <!-- kakao_login_layout.xml -->
+            <com.kakao.usermgmt.LoginButton
+                android:layout_width="267dp"
+                android:layout_height="41dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/selector_button_login_kakao" />
+
+            <Button
+                android:id="@+id/naver_login_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="267dp"
+                android:layout_height="41dp"
+                android:layout_marginBottom="89dp"
+                android:background="@drawable/selector_button_login_naver"
+                android:text="@string/button_login_naver"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/forgot_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="114dp"
+                android:includeFontPadding="false"
+                android:text="@string/button_find_account"
+                android:textColor="@color/material_grey_400"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom"
+            android:background="@color/material_grey_100"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/material_grey_300" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/label_signup"
+                    android:textColor="@color/material_grey_500"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/signup_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/button_signup"
+                    android:textColor="#376092"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</ScrollView>
